@@ -3,4 +3,16 @@
 
 require_relative '../lib/pdf_merger'
 
-# code to run
+## SETUP ##
+
+options = { append_title_page: true }.freeze
+output_filename = 'merged_document'
+
+## END SETUP ##
+
+puts 'Starting to merge PDFs'
+
+pdf_merger = PdfMerger::Merger.new
+pdf_merger.run(output_filename, opts: options)
+
+puts 'All done'

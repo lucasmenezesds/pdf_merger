@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'hexapdf', '~> 0.34.1'
 gem 'rake'
 
 group :development do
