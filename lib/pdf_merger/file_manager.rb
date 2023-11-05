@@ -8,8 +8,9 @@ module PdfMerger
       @input_path = input_path
     end
 
-    def files_in_directory(full_path = nil)
+    def files_in_directory(full_path = nil, sort_entries: true)
       entries = Dir.entries(@input_path).reject { |entry| IGNORED_ENTRIES.include?(entry) }
+      entries.sort! if sort_entries
 
       if full_path.nil?
         entries

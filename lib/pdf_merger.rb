@@ -19,7 +19,7 @@ module PdfMerger
 
     def run(output_filename = 'merged_document', opts: {})
       file_manager = PdfMerger::FileManager.new(@input_path)
-      files_to_merge = file_manager.files_in_directory(@input_path)
+      files_to_merge = file_manager.files_in_directory(@input_path, sort_entries: opts[:sort_file_entries])
       pdf_merger = PdfMerger::Core.new(@output_path, output_filename, opts:)
 
       pdf_merger.merge_documents(files_to_merge)

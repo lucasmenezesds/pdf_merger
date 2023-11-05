@@ -5,7 +5,7 @@ require_relative '../lib/pdf_merger'
 
 ## SETUP ##
 
-options = { append_title_page: true }.freeze
+options = { append_title_page: true, sort_file_entries: true }.freeze
 output_filename = 'merged_document'
 
 ## END SETUP ##
