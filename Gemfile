@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'hexapdf', '~> 0.34.1'
 gem 'rake'
+gem 'ruby-progressbar', '~> 1.13'
 
 group :development do
   # gem "guard", require: false
