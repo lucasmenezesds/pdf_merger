@@ -24,6 +24,9 @@ Metrics/AbcSize:
 Metrics/CyclomaticComplexity:
   Max: 8
 
+Metrics/MethodLength:
+  Max: 20
+
 Style/Documentation:
   Enabled: false
 

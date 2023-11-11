@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'hexapdf'
+require_relative 'progress'
 
 module PdfMerger
   class Core
@@ -12,15 +13,19 @@ module PdfMerger
     end
 
     def merge_documents(path_to_documents)
+      @progress_bar = Progress.new(path_to_documents.size)
+
       path_to_documents.each do |current_filepath|
         filename = File.basename(current_filepath, '.*')
         pdf = HexaPDF::Document.open(current_filepath)
-
         first_page = pdf.pages.first
 
         add_title_page(filename, first_page) if @options[:append_title_page] == true
         pdf.pages.each { |page| @doc.pages << @doc.import(page) }
+
+        @progress_bar.increment
       end
+
       save_document
     rescue NoMethodError
       puts 'Something went wrong, please check if the input/output file paths are correct'
